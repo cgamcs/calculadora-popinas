@@ -1,24 +1,45 @@
+import { formatCurrency } from "../helpers"
 import type { OrderItem } from "../types"
+import { X } from "lucide-react"
 
 type OrderContentsProp = {
   order: OrderItem[]
 }
 
-function OrderContents({order} : OrderContentsProp) {
+function OrderContents({ order }: OrderContentsProp) {
   return (
     <div>
       <h2 className="text-2xl font-black">Consumo</h2>
 
-      <div className="space-y-3 mt-5">
-        {order.length === 0 ? 
+      <div className="mt-4">
+        {order.length === 0 ?
           <p className="text-center">La orden esta vacia</p>
-        : (
-          order.map(item => (
-            <div className="flex" key={item.id}>
-              <p>{item.name} - ${item.price} - {item.quantity}</p>
-            </div>
-          ))
-        )}
+          : (
+            order.map(item => (
+              <div
+                key={item.id}
+                className="flex justify-between items-center border-t border-gray-200 py-5 last-of-type:border-b"
+              >
+                <div>
+                  <p className="text-lg">
+                    {item.name} - {formatCurrency(item.price)}
+                  </p>
+
+                  <p className="font-black">
+                    Cantidad: {item.quantity} - {formatCurrency(item.quantity * item.price)}
+                  </p>
+
+                </div>
+
+                <button
+                  className="bg-red-600 h-8 w-8 flex justify-center items-center rounded-full cursor-pointer"
+                >
+                  <X className="stroke-white" />
+                </button>
+              </div>
+            ))
+          )
+        }
       </div>
     </div>
   )

@@ -12,7 +12,7 @@ function App() {
         <h1 className="text-center text-4xl font-black text-white">Calculadora de Propinas y Consumo</h1>
       </header>
 
-      <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
+      <main className="max-w-7xl mx-auto py-10 grid md:grid-cols-2">
         <div className="p-5 space-y-4">
           <h2 className="text-2xl font-black">Menú</h2>
 
