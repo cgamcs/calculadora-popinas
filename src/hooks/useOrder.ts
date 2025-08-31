@@ -5,7 +5,9 @@ function useOrder() {
   const [order, setOrder] = useState<OrderItem[]>([])
 
   const addItem = (item: MenuItems) => {
-    const itemExist = order.find(orderItem => orderItem.id === item.id) // se usa find en vez de findIndex para evitar mutacion
+    const itemExist = order.find(orderItem => orderItem.id === item.id)
+    // busca el elemento y si existe lo guarda
+    // se usa find en vez de findIndex para evitar mutacion
 
     if (itemExist) {
       const updateOrder = order.map(orderItem => orderItem.id === item.id ? {...orderItem, quantity: orderItem.quantity + 1} : orderItem) // busca el elemento existente en el arreglo de orden
@@ -16,9 +18,8 @@ function useOrder() {
     }
   }
 
-  console.log(order)
-
   return {
+    order,
     addItem
   }
 }
