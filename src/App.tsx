@@ -16,11 +16,13 @@ function App() {
           <h2 className="text-2xl font-black">Menú</h2>
 
           <div className="space-y-2">
+            {/* itera sobre menuItem : MenuItems[] y muestra cada platillo del enu */}
             {menuItems.map(item => (
+
               <MenuItem
                 key={item.id}
-                item={item}
-                addItem={addItem}
+                item={item} // Prop con toda la informacion del platillo
+                addItem={addItem} // Funcion para agregar platillo al useState de order
               />
             ))}
           </div>
