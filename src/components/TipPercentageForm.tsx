@@ -1,22 +1,26 @@
+const tipOptions = [
+  {
+    id: 'tip-10',
+    value: .10,
+    label: '10%'
+  },
+  {
+    id: 'tip-20',
+    value: .20,
+    label: '20%'
+  },
+  {
+    id: 'tip-50',
+    value: .50,
+    label: '50%'
+  },
+]
 
-function TipPercentageForm() {
-  const tipOptions = [
-    {
-      id: 'tip-10',
-      value: .10,
-      label: '10%'
-    },
-    {
-      id: 'tip-20',
-      value: .20,
-      label: '20%'
-    },
-    {
-      id: 'tip-50',
-      value: .50,
-      label: '50%'
-    },
-  ]
+type TipPercentageFormProp = {
+  setTip: React.Dispatch<React.SetStateAction<number>>
+}
+
+function TipPercentageForm({ setTip } : TipPercentageFormProp) {
 
   return (
     <div>
@@ -30,6 +34,7 @@ function TipPercentageForm() {
               name="tip"
               id={tip.id}
               value={tip.value}
+              onChange={e => setTip(+e.target.value)}
             />
             <label htmlFor={tip.id}>{tip.label}</label>
           </div>
