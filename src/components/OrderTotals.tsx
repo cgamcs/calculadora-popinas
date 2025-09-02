@@ -12,6 +12,8 @@ function OrderTotals({ order, tip } : OrderTotalsProp) {
 
   const tipAmount = useMemo(() => subtotalAmout * tip, [tip, order])
 
+  const totalAmount = useMemo(() => subtotalAmout + tipAmount, [tip, order])
+
   return (
     <>
       <div className="space-y-6">
@@ -21,7 +23,7 @@ function OrderTotals({ order, tip } : OrderTotalsProp) {
         
         <p>Propina: <span className="font-bold">{formatCurrency(tipAmount)}</span></p>
         
-        <p>Total a pagar: <span className="font-bold">$0</span></p>
+        <p>Total a pagar: <span className="font-bold">{formatCurrency(totalAmount)}</span></p>
       </div>
 
       <button></button>
