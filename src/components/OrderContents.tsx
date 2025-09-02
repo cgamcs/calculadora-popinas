@@ -4,7 +4,7 @@ import { X } from "lucide-react"
 
 type OrderContentsProp = {
   order: OrderItem[]
-  removeItem: (item: number) => void
+  removeItem: (id: MenuItems['id']) => void
 }
 
 function OrderContents({ order, removeItem }: OrderContentsProp) {

@@ -18,8 +18,8 @@ function useOrder() {
     }
   }
 
-  const removeItem = (id: number) => {
-    console.log('eliminando...')
+  const removeItem = (id: MenuItems['id']) => {
+    setOrder(order.filter(item => item.id !== id))
   }
 
   return {
