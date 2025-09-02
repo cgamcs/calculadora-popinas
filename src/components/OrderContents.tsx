@@ -1,12 +1,13 @@
 import { formatCurrency } from "../helpers"
-import type { OrderItem } from "../types"
+import type { MenuItems, OrderItem } from "../types"
 import { X } from "lucide-react"
 
 type OrderContentsProp = {
   order: OrderItem[]
+  removeItem: (item: number) => void
 }
 
-function OrderContents({ order }: OrderContentsProp) {
+function OrderContents({ order, removeItem }: OrderContentsProp) {
   return (
     <div>
       <h2 className="text-2xl font-black">Consumo</h2>
@@ -33,6 +34,7 @@ function OrderContents({ order }: OrderContentsProp) {
 
                 <button
                   className="bg-red-600 h-8 w-8 flex justify-center items-center rounded-full cursor-pointer"
+                  onClick={() => removeItem(item.id)}
                 >
                   <X className="stroke-white" />
                 </button>

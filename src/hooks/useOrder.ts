@@ -18,9 +18,14 @@ function useOrder() {
     }
   }
 
+  const removeItem = (id: number) => {
+    console.log('eliminando...')
+  }
+
   return {
     order,
-    addItem
+    addItem,
+    removeItem
   }
 }
 
